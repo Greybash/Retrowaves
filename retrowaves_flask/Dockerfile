@@ -1,7 +1,7 @@
 # Use Python 3.11 as the base image
 FROM python:3.11
 
-# Install system dependencies required for dlib
+# Install system dependencies required for dlib (if needed)
 RUN apt-get update && apt-get install -y \
     cmake \
     build-essential \
@@ -19,9 +19,8 @@ WORKDIR /app
 # Copy project files
 COPY . /app
 
-# Install Python dependencies
+# Upgrade pip and install dependencies
 RUN pip install --upgrade pip
-RUN pip install --no-cache-dir dlib
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose port 8000
