@@ -244,6 +244,9 @@
             padding: 20px;
             border-radius: 10px;
         }
+        .pp::-webkit-scrollbar {
+            display: none;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white retro-wave pixel-font">
@@ -279,12 +282,12 @@
             <label for="playlist_id" class="block text-lg">Select a Playlist:</label>
             <select name="playlist_id" id="playlist_id" class="bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none">
                 
-                <option value="" selected disabled>Choose a playlist</option>
+                <option class="pp" value="" selected disabled>Choose a playlist</option>
                 
 
                 {% if playlists %}
                     {% for playlist in playlists %}
-                        <option value="{{ playlist.id }}">{{ playlist.name }}</option>
+                        <option class="pp" value="{{ playlist.id }}">{{ playlist.name }}</option>
                     {% endfor %}
                 {% else %}
                     <option value="" disabled>No playlists found</option>
