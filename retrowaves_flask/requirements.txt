@@ -4,4 +4,4 @@ spotipy
 matplotlib
 pandas
 numpy
-dlib
+face-recognition
