@@ -1,7 +1,7 @@
 # Use Python 3.11 as the base image
 FROM python:3.11
 
-# Install system dependencies required for dlib (if needed)
+# Install system dependencies (if needed for dlib or other packages)
 RUN apt-get update && apt-get install -y \
     cmake \
     build-essential \
@@ -13,17 +13,17 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Set the working directory
+# Set the working directory inside the container
 WORKDIR /app
 
 # Copy project files
 COPY . /app
 
-# Upgrade pip and install dependencies
+# Upgrade pip and install Python dependencies
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Expose port 8000
+# Expose port 8000 for Flask/Gunicorn
 EXPOSE 8000
 
 # Start the application using Gunicorn
