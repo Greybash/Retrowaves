@@ -246,6 +246,7 @@
         }
         .pp::-webkit-scrollbar {
             display: none;
+            width: 400px;
         }
     </style>
 </head>
@@ -280,7 +281,7 @@
 
         <form method="POST" action="{{ url_for('analyze_playlist_personality') }}" class="space-y-4">
             <label for="playlist_id" class="block text-lg">Select a Playlist:</label>
-            <select name="playlist_id" id="playlist_id" class="bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none">
+            <select name="playlist_id" id="playlist_id" style="400px" class="bg-gray-800 text-white px-4 py-2 rounded-full focus:outline-none">
                 
                 <option class="pp" value="" selected disabled>Choose a playlist</option>
                 
