@@ -94,7 +94,12 @@ def dashboard():
     user_data = requests.get("https://api.spotify.com/v1/me", headers=headers).json()
 
     username = user_data.get('display_name', 'Spotify User')  # Default if missing
-    profile_image = user_data.get('images', [{}])[0].get('url', url_for('static', filename='profile.png'))  
+    profile_image = user_data.get('images', [])
+    if profile_image:
+        profile_image = profile_image[0].get('url', url_for('static', filename='profile.png'))
+    else:
+        profile_image = url_for('static', filename='profile.png')  # Use default image
+ 
 
     return render_template('dashboard.html', username=username, profile_image=profile_image)
 
