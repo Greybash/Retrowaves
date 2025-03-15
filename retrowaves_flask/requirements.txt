@@ -4,3 +4,10 @@ spotipy
 matplotlib
 pandas
 numpy
+Flask
+requests
+pandas
+matplotlib
+spotipy
+python-dotenv
+gunicorn
