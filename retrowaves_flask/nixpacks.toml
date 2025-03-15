@@ -1,0 +1,8 @@
+[phases.setup]
+nixPkgs = ["python311", "pip", "gcc", "cmake", "zlib", "libjpeg", "lapack", "blas"]
+
+[phases.build]
+cmds = ["pip install --upgrade pip", "pip install --no-cache-dir -r requirements.txt"]
+
+[start]
+cmd = "gunicorn -b 0.0.0.0:$PORT app:app"
