@@ -1,11 +1,9 @@
 {
-  "builds": [
-    {
-      "src": "retrowaves_flask/app.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "retrowaves_flask/app.py" }
-  ]
+  "build": {
+    "workingDirectory": "retrowaves_flask"
+  },
+  "deploy": {
+    "startCommand": "gunicorn -b 0.0.0.0:$PORT app:app"
+  }
 }
+
