@@ -1,1 +1,16 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "retrowaves_flask/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "retrowaves_flask/app.py"
+    }
+  ]
+}
 
