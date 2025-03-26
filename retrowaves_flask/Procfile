@@ -1,1 +1,2 @@
-web: gunicorn -w 4 -b 0.0.0.0:5000 retrowaves_flask.app:app
+web: gunicorn --bind 0.0.0.0:8000 retrowaves_flask.app:app
+
